@@ -81,21 +81,6 @@ class Passport
     else
       false
     end
-
-    hgt && (
-      parsed_hgt = /(?<value>\d+)(?<unit>cm|in)/.match(hgt)
-
-      parsed_hgt && (
-        value = parsed_hgt["value"].to_i
-
-        case parsed_hgt["unit"]
-        when "cm"
-          value >= 150 && value <= 193
-        when "in"
-          value >= 59 && value <= 76
-        end
-      )
-    )
   end
 
   def hcl_valid?
